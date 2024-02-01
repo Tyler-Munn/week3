@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaflet Map of Three Cities</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+</head>
+<body>
+
+  <div id="map" style="height: 400px;"></div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <script>
+    
+    // Prompt used to create code in AmazonQ: 
+    // "create a leaflet map of three north american cities - please include everything necessary to run the program"
+
+    var map = L.map('map').setView([40, -100], 4);
+    // var map = L.map('map').setView([40, -100], 4);
+    // Instructions can be found at https://leafletjs.com/reference.html#popup
+    // This is the code used to make a map on the page given div identified as "map". It also sets the center lat, long and zoom level
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var newYork = L.marker([40.7128, -74.0059]).addTo(map)
+      .bindPopup('New York City');
+    //   .bindPopup('New York City');
+    // Instructions to add a popup to a marker can be found here https://leafletjs.com/reference.html#popup
+    // The only code necessary is marker.bindPopup(popupContent).openPopup();
+
+    var losAngeles = L.marker([34.0522, -118.2437]).addTo(map)
+    // var losAngeles = L.marker([34.0522, -118.2437]).addTo(map)
+    // Instructions to add a marker can be found here https://leafletjs.com/reference.html#marker
+    // With L.Marker a marker can be created by simply adding lat long shown below:
+    // L.marker(<LatLng> latlng, <Marker options> options?)  
+      .bindPopup('Los Angeles');
+
+    var vancouver = L.marker([49.2827, -123.1207]).addTo(map)
+      .bindPopup('Vancouver');
+
+  </script>
+
+</body>
+</html>
